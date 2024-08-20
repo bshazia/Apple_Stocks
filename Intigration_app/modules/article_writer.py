@@ -110,13 +110,17 @@ def generate_article(text, topic, language):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are an assistant that writes articles based on only the information provided here."},
+                {"role": "system", "content": "You are an assistant that writes articles about the topic based on only the information provided here."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=500,
             temperature=0.7
         )
-        return response.choices[0].message.content
+        article = response.choices[0].message.content
+
+        article = article.replace('\n', ' ').replace('###', '').strip()
+
+        return article
     except Exception as e:
         return f"Error generating article: {str(e)}"
 
