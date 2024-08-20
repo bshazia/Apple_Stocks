@@ -38,10 +38,9 @@ def get_today_date(language):
 
 def google_search(query):
     
-        # api_key = os.getenv('GOOGLE_CSE_API_KEY')
-        # cse_id = os.getenv('GOOGLE_CSE_ID')
-        api_key='AIzaSyB5auUk7mHvd4wpeqJ8-jT_insPEs6SMCA'
-        cse_id = 'f46de150d9a5148d6'
+        api_key = os.getenv('GOOGLE_CSE_API_KEY')
+        cse_id = os.getenv('GOOGLE_CSE_ID')
+  
        
         #print(api_key,cse_id)
         encoded_query = urllib.parse.quote(query)
