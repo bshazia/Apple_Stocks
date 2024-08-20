@@ -156,22 +156,7 @@ def chat():
     response = chat_response(user_query, language)
     return jsonify({'response': response})
 
-def test_chatgpt_api():
-    my_assistant = client.beta.assistants.create(
-        instructions="You are a chatbot that provides relevant responses based on the user's query and detected language.",
-        name="chat bot",
-        tools=[{"type": "code_interpreter"}],
-        model="gpt-4o",
-    )
-    print(my_assistant)
-
-    return (print('hhh'))
     
-@app.route('/test', methods=['GET'])
-def test_api():
-    #print("hhhhhhhhh")
-    result = test_chatgpt_api()
-    return jsonify({"result": result})
 if __name__ == '__main__':
     app.run(debug=True)
     
